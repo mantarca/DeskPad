@@ -1,0 +1,7 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/DeskPad.Core/DeskPad.Core.csproj" />
+    <Project Path="src/DeskPad.Host/DeskPad.Host.csproj" />
+    <Project Path="src/DeskPad.Desktop/DeskPad.Desktop.csproj" />
+  </Folder>
+</Solution>

@@ -1,0 +1,69 @@
+<Window x:Class="DeskPad.Desktop.Views.SettingsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="DeskPad - Ayarlar" Height="600" Width="430"
+        WindowStartupLocation="CenterOwner"
+        Background="#202020" Foreground="White"
+        ResizeMode="NoResize">
+
+    <StackPanel Margin="20">
+        <TextBlock Text="Yayın Ayarları" FontSize="18" FontWeight="Bold" Margin="0,0,0,15" />
+
+        <TextBlock Text="Yayınlanacak Ekran (2. ekran için sanal monitör)" Foreground="Gray" Margin="0,0,0,4" />
+        <ComboBox x:Name="cmbMonitor" Padding="6" Background="#333333" Foreground="White" Margin="0,0,0,8" />
+        <StackPanel Orientation="Horizontal" Margin="0,0,0,14">
+            <Button x:Name="btnRotate" Content="Yön Çevir (Yatay ⇄ Dikey)" Padding="8" Margin="0,0,10,0"
+                    Background="#444444" Foreground="White" BorderThickness="0" Click="OnRotate" />
+            <Button x:Name="btnDisplaySettings" Content="Windows Ekran Ayarları" Padding="8"
+                    Background="#444444" Foreground="White" BorderThickness="0" Click="OnOpenDisplaySettings" />
+        </StackPanel>
+
+        <CheckBox x:Name="chkAuto" Content="Tablet çözünürlüğünü otomatik kullan" Foreground="White" Margin="0,0,0,12" />
+
+        <Grid Margin="0,0,0,12">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="16" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <StackPanel Grid.Column="0">
+                <TextBlock Text="Genişlik (px)" Foreground="Gray" Margin="0,0,0,4" />
+                <TextBox x:Name="txtWidth" Padding="6" Background="#333333" Foreground="White" BorderBrush="#555555" />
+            </StackPanel>
+            <StackPanel Grid.Column="2">
+                <TextBlock Text="Yükseklik (px)" Foreground="Gray" Margin="0,0,0,4" />
+                <TextBox x:Name="txtHeight" Padding="6" Background="#333333" Foreground="White" BorderBrush="#555555" />
+            </StackPanel>
+        </Grid>
+
+        <Grid Margin="0,0,0,12">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="16" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <StackPanel Grid.Column="0">
+                <TextBlock Text="FPS (üst sınır 60)" Foreground="Gray" Margin="0,0,0,4" />
+                <ComboBox x:Name="cmbFps" Padding="6" Background="#333333" Foreground="White">
+                    <ComboBoxItem Content="30" />
+                    <ComboBoxItem Content="60" />
+                </ComboBox>
+            </StackPanel>
+            <StackPanel Grid.Column="2">
+                <TextBlock Text="Bitrate (kbps)" Foreground="Gray" Margin="0,0,0,4" />
+                <TextBox x:Name="txtBitrate" Padding="6" Background="#333333" Foreground="White" BorderBrush="#555555" />
+            </StackPanel>
+        </Grid>
+
+        <CheckBox x:Name="chkAutoStart" Content="Windows ile birlikte başlat" Foreground="White" Margin="0,4,0,4" />
+        <CheckBox x:Name="chkMinimized" Content="Başlangıçta sistem tepsisine küçült" Foreground="White" Margin="0,4,0,4" />
+        <CheckBox x:Name="chkHide" Content="Tablet bağlı değilken sanal 2. ekranı kapat (önerilir)" Foreground="White" Margin="0,4,0,16" />
+
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+            <Button Content="Kaydet" Width="90" Padding="8" Margin="0,0,10,0"
+                    Background="#0078D7" Foreground="White" BorderThickness="0" Click="OnSave" />
+            <Button Content="İptal" Width="90" Padding="8"
+                    Background="#444444" Foreground="White" BorderThickness="0" IsCancel="True" Click="OnCancel" />
+        </StackPanel>
+    </StackPanel>
+</Window>

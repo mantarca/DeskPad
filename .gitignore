@@ -1,0 +1,29 @@
+# ---- Build outputs ----
+[Bb]in/
+[Oo]bj/
+.vs/
+
+# ---- Generated packages / installers (buyuk) ----
+final/
+
+# ---- Buyuk ikili araclar (repoya konmaz; README'ye bak) ----
+tools/
+drivers/
+
+# ---- Android ----
+android-client/.gradle/
+android-client/build/
+android-client/app/build/
+android-client/local.properties
+android-client/gradle-8.7-bin.zip
+*.apk
+*.apk.idsig
+
+# ---- Imzalama anahtari (SIR - commit edilmez) ----
+*.jks
+*.keystore
+
+# ---- IDE ----
+.idea/
+*.iml
+*.user

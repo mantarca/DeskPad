@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">DeskPad</string>
+    <string name="status_waiting">Type-C kablosunu bağlayın ve PC uygulamasını açın...</string>
+    <string name="status_connected">Bağlandı! Ekran başlatılıyor...</string>
+</resources>

@@ -1,0 +1,76 @@
+<Window x:Class="DeskPad.Desktop.Views.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="DeskPad Kontrol Paneli" Height="450" Width="400"
+        WindowStartupLocation="CenterScreen"
+        Background="#202020" Foreground="White"
+        Closing="OnClosing">
+    
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.Row="0" Text="{Binding AppTitle}" FontSize="20" FontWeight="Bold" Margin="20,10"/>
+
+        <StackPanel Grid.Row="1" Margin="20">
+            <!-- Cihaz Durum Kartı -->
+            <Border Background="#333333" CornerRadius="8" Padding="15" Margin="0,0,0,20">
+                <StackPanel>
+                    <TextBlock Text="{Binding DeviceName}" FontSize="18" FontWeight="SemiBold" Margin="0,0,0,5" />
+                    <TextBlock Text="{Binding Resolution}" Foreground="LightGray" />
+                    <TextBlock Text="{Binding ConnectionStatusText}" Foreground="White" FontWeight="Bold" Margin="0,5,0,0" />
+                </StackPanel>
+            </Border>
+
+            <Grid Margin="0,0,0,20">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+                <TextBlock Grid.Row="0" Grid.Column="0" Text="Bağlantı:" Foreground="Gray" Margin="0,0,0,5"/>
+                <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding ConnectionTypeText}" FontWeight="SemiBold" Margin="0,0,0,5"/>
+
+                <TextBlock Grid.Row="1" Grid.Column="0" Text="Encoder:" Foreground="Gray" Margin="0,0,0,5"/>
+                <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding EncoderName}" FontWeight="SemiBold" Margin="0,0,0,5"/>
+
+                <TextBlock Grid.Row="2" Grid.Column="0" Text="Gecikme:" Foreground="Gray" />
+                <TextBlock Grid.Row="2" Grid.Column="1" Text="{Binding LatencyText}" FontWeight="SemiBold" />
+            </Grid>
+
+            <Grid Margin="0,0,0,20">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="10" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                
+                <Button Grid.Column="0" 
+                        Content="{Binding ToggleStreamButtonText}" 
+                        Padding="10"
+                        Background="#0078D7" Foreground="White" BorderThickness="0"
+                        Command="{Binding ToggleStreamCommand}"/>
+                
+                <Button Grid.Column="2" 
+                        Content="Ayarlar" 
+                        Padding="10"
+                        Background="#444444" Foreground="White" BorderThickness="0"
+                        Command="{Binding OpenSettingsCommand}"/>
+            </Grid>
+            
+            <TextBlock Text="{Binding LastLogMessage}" Foreground="Orange" TextWrapping="Wrap" Margin="0,0,0,10" FontSize="11" />
+            
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="0,10,0,0">
+                <TextBlock Text="Sanal Monitör:" VerticalAlignment="Center" Margin="0,0,10,0"/>
+                <CheckBox IsChecked="{Binding IsVirtualDisplayEnabled}" Command="{Binding ToggleVirtualDisplayCommand}" Content="Açık" Foreground="White"/>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Window>
