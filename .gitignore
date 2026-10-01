@@ -18,6 +18,7 @@ android-client/local.properties
 android-client/gradle-8.7-bin.zip
 *.apk
 *.apk.idsig
+!DeskPad.apk
 
 # ---- Imzalama anahtari (SIR - commit edilmez) ----
 *.jks
