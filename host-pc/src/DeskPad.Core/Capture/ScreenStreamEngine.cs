@@ -48,6 +48,12 @@ public class ScreenStreamEngine : IDisposable
             catch { }
         }
 
+        // Kurulumda indirilen arsiv ic klasorle acildigi icin ozyinelemeli ara
+        // (orn. tools\ffmpeg\ffmpeg-<surum>-essentials_build\bin\ffmpeg.exe)
+        var found = Paths.FindFile(
+            Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "tools", "ffmpeg"), "ffmpeg.exe");
+        if (found != null) return found;
+
         return "ffmpeg";
     }
 

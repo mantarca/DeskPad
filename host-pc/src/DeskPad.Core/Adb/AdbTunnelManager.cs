@@ -31,6 +31,11 @@ public class AdbTunnelManager
             }
         }
 
+        // Kurulumda platform-tools arsivi acildigi icin ozyinelemeli ara
+        // (orn. tools\platform-tools\adb.exe)
+        var found = Paths.FindFile(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "tools"), "adb.exe");
+        if (found != null) return found;
+
         return "adb"; // Fallback to PATH
     }
 
